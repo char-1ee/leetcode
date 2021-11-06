@@ -1,6 +1,6 @@
 package DP;
 
-public class UniquePaths {
+class UniquePaths {
     public int uniquePaths(int m, int n) {
         if (m <= 0 || n <= 0)
             return 0;

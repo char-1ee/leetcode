@@ -1,6 +1,6 @@
 package DP;
 
-public class MinimumPathSum {
+class MinimumPathSum {
     public int minPathSum(int[][] grid) {
 
         int m = grid.length;

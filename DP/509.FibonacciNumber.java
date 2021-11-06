@@ -1,6 +1,6 @@
 package DP;
 
-public class FibonacciNumber {
+class FibonacciNumber {
     public int fib(int n) {
         if (n <= 1)
             return n;
