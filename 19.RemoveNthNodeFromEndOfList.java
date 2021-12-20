@@ -24,7 +24,8 @@ class Solution {
 
         /* 
          * This will unfortunately cause a problem when n is the same as the length of the list, 
-         * which would make the first node the target node, and thus make it impossible to find the node before the target node. 
+         * which would make the first node the target node, and thus make it impossible to \
+         * find the node before the target node. 
          * If that's the case, however, we can just return head.next 
          */
         if (fast == null) return head.next;
