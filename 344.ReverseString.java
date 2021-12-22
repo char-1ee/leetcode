@@ -7,10 +7,6 @@ class Solution {
             s[j] = s[i];
             s[i] = temp;
         }
+        // return StringBuilder(s).reverse().toString();
     }
 }
-
-/**
- * "You control the interview, lol."
- * return StringBuilder(s).reverse().toString()
- */
