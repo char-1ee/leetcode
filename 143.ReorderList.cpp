@@ -10,6 +10,7 @@ struct ListNode
 class Solution
 {
 public:
+    /** In-place merge */
     void reorderList(ListNode *head)
     {
         if (head || head->next || head->next->next)
