@@ -1,3 +1,5 @@
+package LinkedList;
+
 class MyLinkedList {
 
     /** Initialize your data structure here. */
