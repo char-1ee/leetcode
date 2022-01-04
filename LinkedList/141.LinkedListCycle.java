@@ -8,6 +8,7 @@ class ListNode {
         val = x;
         next = null;
     }
+}
 
 class Solution {
     /** Fast-pointer and Slow-pointer */
