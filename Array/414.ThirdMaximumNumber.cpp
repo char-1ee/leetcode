@@ -6,7 +6,7 @@ public:
         // To avoid there is INT_MIN in array:
         // For Java:
         // - declare `Integer` x1, x2, x3 to `null`
-        // - or use Long.MIN_VALUE
+        // - or use Long.MIN_VALUE (but possible boxing/unboxing error)
 
         long x1 = LONG_MIN, x2 = LONG_MIN, x3 = LONG_MIN;
         
