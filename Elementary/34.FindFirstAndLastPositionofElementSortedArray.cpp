@@ -1,26 +1,23 @@
 class Solution {
-    int search(vector<int>& a, int x) {
-        int n = a.size();
-        int left = 0, right = n - 1;
-        int pos = n;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (a[mid] >= x) {
-                pos = mid; 
-                right = mid - 1;
-            } else {    // a[mid] < x
-                left = mid +1;
-            }
+    int lower_bound(vector<int>& nums, int target) {
+        int l = 0, r = nums.size()-1;
+        while (l <= r) {
+            int mid = (r-l)/2+l;
+            if (nums[mid] < target)
+                l = mid+1;
+            else
+                r = mid-1;
         }
-        return pos;
-    }
+        return l;
+}
 
 public: 
-    vector<int> searchRange(vector<int>& a, int x) {
-        int first = search(a, x);
-        int last = search(a, x + 1) - 1;
-        if (first <= last)
-            return {first, last};
-        return {-1, -1};
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int idx1 = lower_bound(nums, target);
+        int idx2 = lower_bound(nums, target+1)-1;
+        if (idx1 < nums.size() && nums[idx1] == target)
+            return {idx1, idx2};
+        else
+            return {-1, -1};
     }
 }
