@@ -1,3 +1,5 @@
+package Elementary;
+
 class Solution {
     /** Two pointer method */
     public int[] shuffle(int[] nums, int n) {
@@ -32,6 +34,7 @@ class Solution {
     }
 
     /**
-     * Refer to this solution: https://leetcode.com/problems/shuffle-the-array/discuss/675956/In-Place-O(n)-Time-O(1)-Space-With-Explanation-and-Analysis
+     * Refer to this solution:
+     * https://leetcode.com/problems/shuffle-the-array/discuss/675956/In-Place-O(n)-Time-O(1)-Space-With-Explanation-and-Analysis
      */
 }

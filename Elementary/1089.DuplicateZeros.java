@@ -1,3 +1,5 @@
+package Elementary;
+
 class Solution {
   // Two pointers with extra memory space
   public void duplicateZeros1(int[] arr) {
