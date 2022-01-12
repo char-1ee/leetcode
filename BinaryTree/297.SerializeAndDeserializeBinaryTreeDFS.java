@@ -7,7 +7,7 @@
  * TreeNode(int x) { val = x; }
  * }
  */
-public class Codec {
+class Codec {
     private static final String N = "null";
     private static final String comma = ",";
     private int index; // index for deserialization
