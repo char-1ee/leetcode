@@ -13,7 +13,7 @@
 class Solution {
 public:
 
-    /** Iterative with stack */
+    /** Iterative method 1 */
     vector<int> preorderTraversal(TreeNode* root) {
         if (!root) return {}
         
@@ -29,6 +29,23 @@ public:
         }
         return res;
     } 
+
+    /** Iterative method 2 */
+    vector<int> preorderTraversal2(TreeNode* root) {
+        stack<TreeNode*> s;
+        vector<int> res;
+        TreeNode* p = root;
+        while (p || !s.empty()) {
+            while (p) {
+                res.push_back(p->val);
+                s.push(p);
+                p = p->left;
+            }
+            p = s.top(); s.pop();
+            p = p->right;
+        }
+        return res;
+    }
 
     /** Recursive method 1 */
     vector<int> res;
