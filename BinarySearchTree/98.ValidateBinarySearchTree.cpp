@@ -10,8 +10,6 @@
  * };
  */
 class Solution {
-    
-    
 public:
     /** Recursive method 1 */
     bool isValidBST(TreeNode* root) {
@@ -33,5 +31,24 @@ public:
     }
     bool isValidBST2(TreeNode* root) {
         return isValidBST(root, NULL, NULL);
+    }
+
+    /** Iterative with stack */
+    bool isValidBST3(TreeNode* root) {
+        stack<TreeNode*> s;
+        TreeNode* p = root;
+        TreeNode* prev = NULL;
+        while (p || !s.empty()) {
+            while (p) {
+                s.push(p);
+                p = p->left;
+            }
+            p = s.top(); s.pop();
+            if (prev && p->val <= prev->val)
+                return false;
+            prev = p;
+            p = p->right;
+        }
+        return true;
     }
 };
