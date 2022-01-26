@@ -1,7 +1,7 @@
 class DisjointSet {
 public:
     // O(N)
-    DisjointSet (int size): roots(size), ranks(size) {
+    DisjointSet(int size): roots(size), ranks(size) {
         for (int i = 0; i < size; ++i) {
             roots[i] = i;
             ranks[i] = i;
@@ -9,11 +9,19 @@ public:
     }
 
     // O(a(N)) -> average O(1)
-    int find(int x) {
+    int find(int x) { // recusrive 
         if (x == roots[x])
             return x;
         return roots[x] = find(roots[x]);
     } 
+
+    int find2(int x) { // iterative
+        while (x != roots[x]) {
+            roots[x] = roots[roots[x]];
+            x = roots[x];
+        }
+        return x;
+    }
 
     // O(a(N)) -> average O(1)
     void unionSet(int x, int y) {
