@@ -16,14 +16,28 @@ public:
         // Extract every two front elements and then merge them, 
         // push back to the array. Recursively. 
         while (lists.size() > 1) {
-            lists.push_back(merge(lists[0], lists[1]));
+            lists.push_back(mergeTwoLists(lists[0], lists[1]));
             lists.erase(lists.front());
             lists.erase(lists.front());
         }
         return lists.front();
     }
 
-    ListNode* merge(ListNode* l1, ListNode* l2) {
+    /** Divide and conquer */
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if (lists.empty()) return NULL;
+        int n = lists.size();
+        while (n > 1) {
+            int k = (n + 1) / 2;
+            for (int i = 0; i < n / 2; ++i) {
+                lists[i] = mergeTwoLists(lists[i], lists[i+k]);
+            }
+            n = k;
+        }
+        return lists[0];
+    }
+
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode* res = new ListNode(0);
         ListNode* curr = res;
         while (l1 && l2) {
@@ -40,35 +54,4 @@ public:
         curr->next = l1 ? l1 : l2;
         return res->next;
     } 
-
-    /** Min heap */
-    public ListNode mergeKLists2(ListNode[] lists) {
-        if (lists == null || lists.length == 0) return null;
-        
-        ListNode root = new ListNode(-1);
-        ListNode curr = root;
-        PriorityQueue<ListNode> pq = new PriorityQueue<>(lists.length, new Comparator<ListNode>(){
-            @Override
-            public int compare(ListNode o1, ListNode o2) {
-                if (o1.val < o2.val) return -1;
-                else if (o1.val > o2.val) return 1;
-                else return 0;
-            }
-        });
-        
-        for (ListNode l : lists) {
-            if (l != null)
-                pq.add(l);
-        }
-        
-        while (pq.isEmpty() == false) {
-            ListNode t = pq.poll();
-            curr.next = t;
-            curr = curr.next;
-            if (curr.next != null)
-                pq.add(curr.next);        
-        }   
-        
-        return root.next;
-    }
 }
