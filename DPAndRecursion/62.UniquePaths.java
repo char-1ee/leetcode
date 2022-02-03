@@ -1,4 +1,4 @@
-package DP;
+package DPAndRecursion;
 
 class UniquePaths {
     public int uniquePaths(int m, int n) {
