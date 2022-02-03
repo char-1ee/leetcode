@@ -19,12 +19,17 @@ public:
 
     /** One pass */
     string getHint2(string secret, string guess) {
+
+        // For cows maintain an array that stores count of the number appearances in secret and in guess.
         int m[256] = {0}, bulls = 0, cows = 0;
         for (int i = 0; i < secret.size(); ++i) {
             if (secret[i] == guess[i]) ++bulls;
             else {
-                if (m[secret[i]]++ < 0) ++cows;
-                if (m[guess[i]]-- > 0) ++ cows;
+                // Increment cows when either number from secret was already seen in guest or vice versa.
+                if (m[secret[i]] < 0) ++cows; // means secret[i] 
+                if (m[guess[i]] > 0) ++cows; // means guess[i] once appeared in secret 
+                m[secret[i]]++;
+                m[guess[i]]--;
             }
         }
         return to_string(bulls) + "A" + to_string(cows) + "B";
