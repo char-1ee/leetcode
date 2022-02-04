@@ -1,6 +1,9 @@
 package DPAndRecursion;
 
+import java.util.HashMap;
+
 class Solution {
+    /** DP */
     public int climbStairs(int n) {
         if (n <= 1)
             return n;
@@ -16,9 +19,7 @@ class Solution {
         return dp[n];
     }
 
-    /**
-     * DP optimized
-     */
+    /** Optimized DP */
     public int climbStairs2(int n) {
         if (n <= 1)
             return n;
@@ -33,4 +34,20 @@ class Solution {
 
         return prev2;
     }
+
+    /** Recursion with memoization */
+    private HashMap<Integer, Integer> cathe = new HashMap<>();
+
+    public int climbStairs3(int n) {
+        if (cathe.containsKey(n))
+            return cathe.get(n);
+        int res;
+        if (n < 4)
+            return n;
+        else
+            res = climbStairs3(n - 1) + climbStairs3(n - 2);
+        cathe.put(n, res);
+        return res;
+    }
+
 }
