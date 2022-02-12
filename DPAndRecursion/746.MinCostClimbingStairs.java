@@ -15,6 +15,17 @@ class MinCostClimbingStairs {
         return Math.min(dp[n - 1], dp[n - 2]); // there is no cost[n] for top floor
     }
 
+    public int minCostClimbingStairs3(int[] cost) {
+        int n = cost.length;
+        int[] dp = new int[n + 1];
+        
+        for (int i = 2; i < n + 1; i++) {
+            dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
+        }
+
+        return dp[n];
+    }
+
     public int minCostClimbingStairs2(int[] cost) {
         int a = 0, b = 0;
         for (int num : cost) {
