@@ -40,7 +40,7 @@ class Solution {
     }
 
     /*
-     * anticlockwise rotate
+     * Anti-clockwise rotate
      * first reverse left to right, then swap the symmetry
      * 1 2 3    3 2 1    3 6 9
      * 4 5 6 => 6 5 4 => 2 5 8
