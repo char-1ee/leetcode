@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 class Solution {
     /** Bottom-up DP */
     public int rob(int[] nums) {
