@@ -26,5 +26,16 @@ class Solution {
     }
 
     /** Bottom-up */
-    public 
+    public int maximumScore2(int[] nums, int[] muls) {
+        int n = nums.length, m = muls.length;
+        int[][] dp = new int[m + 1][m + 1];
+        
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = i; j >= 0; j--) {
+                dp[i][j] = Math.max(dp[i + 1][j + 1] + nums[j] * muls[i],
+                                    dp[i + 1][j] + nums[n - 1 - i + j] * muls[i]);
+            }
+        }
+        return dp[0][0];
+    }
 }
