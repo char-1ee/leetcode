@@ -1,3 +1,6 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Stack;
 
 /** Deque but slow */
 class CustomStack {
@@ -49,7 +52,7 @@ class CustomStackByIncrArray {
     private final int limit;
     private int size;
 
-    public CustomStack(int maxSize) {
+    public CustomStackByIncrArray(int maxSize) {
         this.s = new Stack<>();
         this.inc = new int[maxSize];
         this.limit = maxSize;
