@@ -26,6 +26,8 @@ public:
 
 /**
  * https://www.cnblogs.com/grandyang/p/9727206.html
- * Reject random number into a table T(m, n)
- * table T = (randN() - 1) * M + randN() 
+ * - Reject random number by row-and-col into a table T(m, n)
+ *   T = (randN() - 1) * M + randN() 
+ * - Scaling rand7() with a constant to make distribution continuous uniform
+ * 
  */
