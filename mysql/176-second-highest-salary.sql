@@ -18,3 +18,8 @@ SELECT ifnull(
 SELECT max(a.Salary) AS SecondHighestSalary
 FROM Employee a
 JOIN Employee b ON a.Salary < b.Salary;
+
+-- Method 5
+select max(salary) AS SecondHighestSalary
+from Employee
+where salary < (select max(salary) from Employee);
