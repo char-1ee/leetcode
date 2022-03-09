@@ -41,7 +41,3 @@ class Solution {
         return searchMatrix(left, row, mid-1, down) || searchMatrix(mid+1, up, right, row -1);
     }
 }
-
-class Solution2 {
-    
-}
