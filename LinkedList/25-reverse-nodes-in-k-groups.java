@@ -1,7 +1,10 @@
 package LinkedList;
 
+/**
+ * Iterative
+ */
 class Solution {
-    public ListNode reverseKGroup(ListNode head, int k) {
+    public ListNode reverseKGroupIteration(ListNode head, int k) {
         if (head == null || k == 1) return head;
         
         ListNode dummy = new ListNode(-1, head);
@@ -30,5 +33,41 @@ class Solution {
         }
         return last; // new head
     }
-}               
+}           
+
+/**
+ * Recursive:
+ * 用 head 记录每段的开始位置，cur 记录结束位置的下一个节点，然后调用 reverse 函数来将这段翻转，
+ * 然后得到一个 new_head，原来的 head 就变成了末尾，
+ * 这时候后面接上递归调用下一段得到的新节点，返回 new_head 即可
+ * 
+ */
+class Solution2 {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode curr = head;
+        for (int i = 0; i < k; i++) {
+            if (curr == null) return head;
+            curr = curr.next;
+        }
+        ListNode newHead = reverse(head, curr);
+        head.next = reverseKGroup(curr, k);
+        return newHead;
+    }
+
+    /**
+     * @param head the start node of a k-group
+     * @param tail the next node of end of a k-group
+     * @return reversed list which head is now the end
+     */
+    private ListNode reverse(ListNode head, ListNode tail) {
+        ListNode prev = tail;
+        while (head != tail) { // using head without local copy
+            ListNode tmp = head.next;
+            head.next = prev;
+            prev = head;
+            head = tmp;
+        }
+        return prev;
+    }
+}
             
