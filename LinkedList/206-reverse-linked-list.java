@@ -44,6 +44,19 @@ class Solution {
         curr.next = prev;
         return reverseList(next, curr);
     }
+
+    /** recursive 2 */
+    public ListNode reverse(ListNode head) {
+        if (head == null)
+            return null;
+        if (head.next == null)
+            return head;
+        ListNode original_head = head.next;
+        ListNode reversed_list = reverse(original_head);
+        original_head.next = head;
+        head.next = null;
+        return reversed_list;
+    }
 }
 
 /**
