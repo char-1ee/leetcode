@@ -1,7 +1,7 @@
 class Solution {
 public:
     // naive 
-    int strStr(string haystack, string needle) {
+    int strStr2(string haystack, string needle) {
         if (needle.empty()) return 0;
         int n = haystack.size(), m = needle.size();
         if (n < m) return -1;
