@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // backtracking
     int totalNQueens(int n) {
         if (n == 1) return 1;
         int res = 0;
@@ -24,5 +25,17 @@ public:
             // recovery for next solution to be found
             diag[idx1] = anti_diag[idx2] = cols[col] = false;
         }
+    }
+
+    // an amazing method i saw
+    int totalNQueens(int n, int i = 0, int c = 0, int d = 0, int a = 0) {
+        if (i == n) return 1;
+        int ret = 0;
+        for (int j = 0; j < n; j++) {
+            int x = 1 << j, y = 1 << (i - j + n - 1), z = 1 << i + j;
+            if ((c & x) || (d & y) || (a & z)) continue ;
+            ret += totalNQueens(n, i + 1, c ^ x, d ^ y, a ^ z);
+        }
+        return ret;
     }
 };
