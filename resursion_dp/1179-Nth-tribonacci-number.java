@@ -1,5 +1,3 @@
-package DPAndRecursion;
-
 class NthTribonacciNumber {
 
     /* DP Method 1 */

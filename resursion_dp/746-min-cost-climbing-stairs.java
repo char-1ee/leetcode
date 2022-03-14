@@ -1,5 +1,3 @@
-package DPAndRecursion;
-
 class MinCostClimbingStairs {
     public int minCostClimbingStairs1(int[] cost) {
         int n = cost.length;
