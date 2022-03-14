@@ -1,3 +1,5 @@
+package resursion_dp;
+
 class MinCostClimbingStairs {
     public int minCostClimbingStairs1(int[] cost) {
         int n = cost.length;
