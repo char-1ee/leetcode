@@ -27,7 +27,7 @@ public:
         ListNode* curr = head;
         while (curr) {
             int currVal = curr->val;
-            ListNode* tmp = curr;
+            ListNode* tmp = curr->next;
             while (tmp && tmp->val == currVal) {
                 tmp = tmp->next;
             }
