@@ -1,3 +1,4 @@
+package backtracking;
 
 /** For detailed, refer to cpp solution */
 class Solution {
