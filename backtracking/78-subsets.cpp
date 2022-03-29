@@ -12,13 +12,12 @@ public:
         return res;
     }
     void backtrack(vector<int>& list, vector<vector<int>>& res, vector<int>& nums, int index) {
-        
         // no need for a terminal condition, start > nums.length
         // due to property of subsets, if start > nums.length, return
         res.push_back(list);
         for (int i = index; i < nums.size(); ++i) {
             list.push_back(nums[i]);
-            backtrack(list, res, nums, i+ 1);
+            backtrack(list, res, nums, i + 1);
             list.pop_back();
         }
     }
