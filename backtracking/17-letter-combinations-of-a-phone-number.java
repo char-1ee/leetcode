@@ -8,6 +8,7 @@ class Solution {
     // when size is countable, use array rather than hashmap to contain k-v pairs
     private String[] map = {" ", " ", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     
+    /** Backtracking */
     public List<String> letterCombinations(String digits) {
         List<String> res = new ArrayList<>();
         if (digits.isEmpty()) {
@@ -31,5 +32,25 @@ class Solution {
             backtrack(res, track, digits, idx + 1);
             track.deleteCharAt(track.length() - 1);
         }
+    }
+
+    /** Iterative: https://leetcode.com/problems/letter-combinations-of-a-phone-number/discuss/1148252/Short-and-Easy-Solutions-or-Multiple-Approaches-Explained-or-Beats-100 */
+    public List<String> letterCombinations2(String digits) {
+        List<String> res = new ArrayList<>();
+        if (digits.isEmpty())
+            return res;
+        res.add(""); // must be initialized
+        for (int i = 0; i < digits.length(); i++) {
+            List<String> set = new ArrayList<>();
+            String letters = map[digits.charAt(i) - '0'];
+            // extract items in res and append new coming letters from next level
+            for (int j = 0; j < letters.length(); j++) {
+                for (String s : res)
+                    set.add(s + letters.charAt(j));
+            }
+            res = set; // copy values back
+        }
+        
+        return res;
     }
 }
