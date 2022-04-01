@@ -17,6 +17,7 @@ public:
             return;
         } 
         
+        // pruning: i < nums.size() && target >= 0, but more time consuming
         for (int i = idx; i < nums.size(); ++i) {
             sub.push_back(nums[i]);
             backtrack(nums, target - nums[i], i, sub, res); // recursion from same index i since elements can be reused

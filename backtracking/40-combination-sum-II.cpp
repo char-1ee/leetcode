@@ -16,6 +16,7 @@ public:
             return;
         } else {
             for (int i = idx; i < nums.size(); ++i) {
+                // compare adjacent elements and jump same ones
                 if (i > idx && nums[i] == nums[i-1])
                     continue;
                 sub.push_back(nums[i]);
