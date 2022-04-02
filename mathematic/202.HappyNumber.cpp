@@ -23,10 +23,9 @@ public:
         return sum;
     }
 
-    /** Using hashset to detect loop */
+    // hashset 1
     bool isHappy2(int n) {
-        unordered_set<int> st;
-        
+        unordered_set<int> st;    
         while (n != 1) {
             int sum = 0;
             while (n) {
@@ -35,10 +34,32 @@ public:
                 sum += m * m;
             }
             n = sum;
-            if (st.count(n)) break;
+            if (st.count(n)) 
+                break;
             st.insert(n);
-            
         }      
         return n == 1;
+    }
+
+    // hashset 2, time O(logn), space O(logn)
+    bool isHappy(int n) {
+        unordered_set<int> set;
+        while (true) {
+            int num = 0;
+            while (n > 0) 
+            {
+                int digit = n % 10;
+                num += digit * digit;
+                n /= 10;
+            }
+            n = num;
+            if (n == 1)
+                return true;           
+            if (set.count(n) > 0) {
+                return false;
+            } else {
+                set.insert(n);
+            }
+        }
     }
 }

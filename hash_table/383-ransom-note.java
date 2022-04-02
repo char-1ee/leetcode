@@ -3,6 +3,7 @@ package hash_table;
 import java.util.HashMap;
 
 class Solution {
+    /** Hash table, time O(n), space O(n) */
     public boolean canConstruct(String t, String s) {
         HashMap<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
