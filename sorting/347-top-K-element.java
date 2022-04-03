@@ -10,7 +10,7 @@ import java.util.Random;
 
 class Solution {
     /**
-     * Hash Map + Max Heap
+     * Hash Map + Min Heap
      * time O(Nlogk), space O(N+k)
      */
     public int[] topKFrequent1(int[] nums, int k) {
@@ -19,7 +19,7 @@ class Solution {
 
         int[] res = new int[k];
         HashMap<Integer, Integer> m = new HashMap<>();
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> m.get(a) - m.get(b)); // max heap
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> m.get(a) - m.get(b)); // min heap
 
         for (int num : nums) { // O(n)
             m.put(num, m.getOrDefault(num, 0) + 1);
@@ -62,10 +62,14 @@ class Solution {
 
         // retrieve the top k frequency element in nums from buckets
         List<Integer> res = new ArrayList<>();
-        for (int pos = buckets.length - 1; pos >= 0 && res.size() < k; pos--) { // notice that buckets is already sorted
+        for (int pos = buckets.length - 1; k > 0; pos--) { // notice that buckets is already sorted
             if (buckets[pos] == null)
                 continue;
-            res.addAll(buckets[pos]);
+            // res.addAll(buckets[pos]);
+            for (int num : buckets[pos]) {
+                res.add(num);
+                k--;
+            }
         }
         return res;
 
