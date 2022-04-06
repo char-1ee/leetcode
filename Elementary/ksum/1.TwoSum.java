@@ -1,4 +1,4 @@
-package elementary;
+package elementary.ksum;
 
 import java.util.HashMap;
 import java.util.Map;

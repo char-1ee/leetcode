@@ -1,4 +1,4 @@
-package hash_table;
+package elementary.ksum;
 
 import java.util.HashMap;
 
