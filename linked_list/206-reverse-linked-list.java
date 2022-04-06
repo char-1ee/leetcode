@@ -1,4 +1,4 @@
-package LinkedList;
+package linked_list;
 
 class ListNode {
     int val;
@@ -19,7 +19,7 @@ class Solution {
     public ListNode reverseLinkedList(ListNode head) {
         if (head == null)
             return null;
-        ListNode prev = null;
+        ListNode prev = null; // should declare null here, rather than an empty node
         ListNode curr = head;
 
         while (curr != null) {
@@ -47,9 +47,7 @@ class Solution {
 
     /** recursive 2 */
     public ListNode reverse(ListNode head) {
-        if (head == null)
-            return null;
-        if (head.next == null)
+        if (head == null || head.next == null)
             return head;
         ListNode original_head = head.next;
         ListNode reversed_list = reverse(original_head);
