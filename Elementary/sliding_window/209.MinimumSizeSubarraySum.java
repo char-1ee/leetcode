@@ -1,4 +1,4 @@
-package elementary;
+package elementary.sliding_window;
 
 class Solution {
 
