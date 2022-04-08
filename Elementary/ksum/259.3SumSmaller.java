@@ -15,7 +15,7 @@ class Solution {
             while (i < j) {
                 int sum = nums[i] + nums[j] + nums[k];
                 if (sum < target) {
-                    cnt += j - i;
+                    cnt += j - i; // trick
                     i++;
                 } else {
                     j--;
