@@ -1,4 +1,4 @@
-package elementary.panindrome;
+package elementary.palindrome;
 
 class Solution {
     /** two pointers */
