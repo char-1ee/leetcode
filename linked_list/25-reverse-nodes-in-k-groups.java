@@ -5,11 +5,12 @@ package linked_list;
  */
 class Solution {
     public ListNode reverseKGroupIteration(ListNode head, int k) {
-        if (head == null || k == 1) return head;
-        
+        if (head == null || k == 1)
+            return head;
+
         ListNode dummy = new ListNode(-1, head);
         ListNode prev = dummy, curr = head;
-        
+
         for (int i = 1; curr != null; i++) {
             if (i % k == 0) {
                 prev = reverse(prev, curr.next);
@@ -18,22 +19,22 @@ class Solution {
                 curr = curr.next;
             }
         }
-        return dummy.next;        
+        return dummy.next;
     }
-    
+
     // since we cannot track a head of sublist but the previous node of sublist head
     private ListNode reverse(ListNode prev, ListNode tail) {
-        ListNode last = prev.next; 
+        ListNode last = prev.next;
         ListNode curr = last.next;
         while (curr != tail) {
             last.next = curr.next;
             curr.next = prev.next;
             prev.next = curr;
-            curr = last.next;       
+            curr = last.next;
         }
         return last; // new head
     }
-}           
+}
 
 /**
  * Recursive:
@@ -46,7 +47,8 @@ class Solution2 {
     public ListNode reverseKGroup(ListNode head, int k) {
         ListNode curr = head;
         for (int i = 0; i < k; i++) {
-            if (curr == null) return head;
+            if (curr == null)
+                return head;
             curr = curr.next;
         }
         ListNode newHead = reverse(head, curr);
@@ -70,4 +72,20 @@ class Solution2 {
         return prev;
     }
 }
-            
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode() {
+    }
+
+    ListNode(int val) {
+        this.val = val;
+    }
+
+    ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
+}

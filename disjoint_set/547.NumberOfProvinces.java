@@ -1,3 +1,5 @@
+package disjoint_set;
+
 class Solution {
     public int findCircleNum(int[][] isConnected) {
         int n = isConnected.length;
