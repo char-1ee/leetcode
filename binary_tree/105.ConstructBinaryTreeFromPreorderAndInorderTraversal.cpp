@@ -19,8 +19,6 @@ public:
         for (i = in_left; i <= in_right; ++i) {
             if (in[i] == pre[pre_left]) break;
         }
-        
-        
         TreeNode* root = new TreeNode(pre[pre_left]);
         root->left = buildTree(pre, pre_left + 1, pre_left + i - in_left, in, in_left, i - 1);
         root->right = buildTree(pre, pre_left + i - in_left + 1, pre_right, in, i + 1, in_right);

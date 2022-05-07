@@ -1,24 +1,28 @@
+package elementary;
+
 import java.util.Arrays;
 
-class Solution{
+class Solution {
     /**
      * My primary solution by Sieve of Eratosthenes
      */
-    public int countPrimes1(int n){
+    public int countPrimes1(int n) {
         boolean[] prime = new boolean[n + 1];
         Arrays.fill(prime, true);
         int cnt = 0;
-        if ( n == 0 || n == 1) return 0;
+        if (n == 0 || n == 1)
+            return 0;
         prime[0] = prime[1] = false;
-        for (int i = 2; i <= Math.sqrt(n); i++){
-             if (prime[i] == true){
-                 for (int j = i * i; j < n; j += i){
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (prime[i] == true) {
+                for (int j = i * i; j < n; j += i) {
                     prime[j] = false;
-                 }
-             }
+                }
+            }
         }
-        for (int i = 0; i < n; i++ ){
-            if (prime[i] == true) cnt++;
+        for (int i = 0; i < n; i++) {
+            if (prime[i] == true)
+                cnt++;
         }
         return cnt;
     }
@@ -27,7 +31,7 @@ class Solution{
      * Runtime Error solution
      * 
      * A problem may encounter: 499979 Runtime error
-     * Related blogs: 
+     * Related blogs:
      * https://www.git2get.com/av/46334797.html
      * https://leetcode.com/problems/count-primes/discuss/57596/why-am-i-getting-runtime-error-for-input-being-499979-could-not-figure-out
      * https://leetcode.com/problems/count-primes/discuss/57741/runtime-error-with-last-executed-input-499979
@@ -36,10 +40,10 @@ class Solution{
     public int countPrimesOverflow(int n) {
         boolean[] prime = new boolean[n];
         int cnt = 0;
-        for (int i = 2; i < n; i++){ // range in n because we need cnt iterating to n
-            if (prime[i] == false){
+        for (int i = 2; i < n; i++) { // range in n because we need cnt iterating to n
+            if (prime[i] == false) {
                 cnt++;
-                for (int j = i*i; j < n; j += i){
+                for (int j = i * i; j < n; j += i) {
                     // since we need to iterate i to n, j = i*i (n*n) cannot avoid overflowing
                     prime[j] = true;
                 }
@@ -54,12 +58,12 @@ class Solution{
     public int countPrimes2(int n) {
         boolean[] prime = new boolean[n];
         int cnt = 0;
-        
-        for (int i = 2; i < n; i++){ 
-            if (prime[i] == false){
+
+        for (int i = 2; i < n; i++) {
+            if (prime[i] == false) {
                 cnt++;
-                for (long j = (long) i*i; j < n; j += i){   
-                    prime[(int)j] = true; 
+                for (long j = (long) i * i; j < n; j += i) {
+                    prime[(int) j] = true;
                 }
             }
         }
@@ -67,17 +71,18 @@ class Solution{
     }
 
     /**
-     * Solution by https://leetcode.com/problems/count-primes/discuss/57588/My-simple-Java-solution
+     * Solution by
+     * https://leetcode.com/problems/count-primes/discuss/57588/My-simple-Java-solution
      */
     public int countPrimes3(int n) {
         boolean[] prime = new boolean[n];
         int cnt = 0;
-        
-        for (int i = 2; i < n; i++){ 
-            if (prime[i] == false){
+
+        for (int i = 2; i < n; i++) {
+            if (prime[i] == false) {
                 cnt++;
-                for (int j = 2; i * j < n; j ++){ // A controllable loop condition
-                    prime[i*j] = true; // However, an inperfect time complexity due to repeatedly check
+                for (int j = 2; i * j < n; j++) { // A controllable loop condition
+                    prime[i * j] = true; // However, an imperfect time complexity due to repeatedly check
                 }
             }
         }
@@ -85,18 +90,20 @@ class Solution{
     }
 
     /**
-     * Solution that improves the Sieve of Eratosthenes: 
-     * by https://leetcode.com/problems/count-primes/discuss/57593/12-ms-Java-solution-modified-from-the-hint-method-beats-99.95
+     * Solution that improves the Sieve of Eratosthenes:
+     * by
+     * https://leetcode.com/problems/count-primes/discuss/57593/12-ms-Java-solution-modified-from-the-hint-method-beats-99.95
      */
     public int countPrimes4(int n) {
-        
+
         /**
          * if n = 2, the prime 2 is not less than n,
          * so there are no primes less than n
          */
-        if (n < 3) return 0;
-        
-        /** 
+        if (n < 3)
+            return 0;
+
+        /**
          * Start with the assumption that half the numbers below n are
          * prime candidates, since we know that half of them are even,
          * and so _in general_ aren't prime.
@@ -108,12 +115,12 @@ class Solution{
          * 
          * We'll decrement count when we find an odd which isn't prime.
          *
-         * If n = 3,  c = 1.
-         * If n = 5,  c = 2.
+         * If n = 3, c = 1.
+         * If n = 5, c = 2.
          * If n = 10, c = 5.
          */
         int c = n / 2;
-        
+
         /**
          * Java initializes boolean arrays to {false}.
          * In this method, we'll use truth to mark _composite_ numbers.
@@ -125,7 +132,7 @@ class Solution{
          * This is because `c` is current after each `i` iteration below.
          */
         boolean[] s = new boolean[n];
-        
+
         /**
          * Starting with an odd prime-candidate above 2, increment by two
          * to skip evens (which we know are not prime candidates).
@@ -135,8 +142,8 @@ class Solution{
                 // c has already been decremented for this composite odd
                 continue;
             }
-            
-            /** 
+
+            /**
              * For each prime i, iterate through the odd composites
              * we know we can form from i, and mark them as composite
              * if not already marked.
@@ -164,10 +171,9 @@ class Solution{
                 if (!s[j]) {
                     c--;
                     s[j] = true;
-                    }
                 }
             }
+        }
         return c;
     }
 }
-

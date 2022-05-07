@@ -1,4 +1,4 @@
-package Elementary;
+package elementary;
 
 class Solution {
     public int[] replaceElements(int[] arr) {

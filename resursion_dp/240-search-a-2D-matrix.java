@@ -1,4 +1,4 @@
-package DPAndRecursion;
+package resursion_dp;
 
 class Solution {
     private int[][] matrix;

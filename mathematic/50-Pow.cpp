@@ -23,7 +23,7 @@ public:
                 nn--;
             }
         }
-        return n < 0 ? 1.0/res : res; 
+        return n < 0 ? 1.0 / res : res; 
     }
 
     /** recursive */
