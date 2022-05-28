@@ -1,13 +1,9 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- * int val;
- * TreeNode left;
- * TreeNode right;
- * TreeNode(int x) { val = x; }
- * }
- */
-public class Codec {
+package binary_tree;
+
+import java.util.*;
+import utils.TreeNode;
+
+class Codec {
 
     private static final String COMMA = ",";
     private static final String NULL = "null";
