@@ -13,7 +13,7 @@ function moveZeroes(nums: number[]): void {
 // ===== Two-pointers: push non-zeros to front =====
 function moveZeroes2(nums: number[]): void {
     if (nums.length == 1) return;
-    
+
     // Push all non-zero elements to the front of array
     let idx = 0; // pointer to the position to place next non-zero element
     let i; // pointer for scanning
