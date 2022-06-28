@@ -35,7 +35,8 @@ class Solution {
 }
 
 /**
- * We will be using a two-pointer approach where one pointer iterates over the original set of elements 
- * and another one that keeps track of the next "empty" location in the array 
+ * We will be using a two-pointer approach where one pointer iterates over the
+ * original set of elements
+ * and another one that keeps track of the next "empty" location in the array
  * or the next location that can be overwritten in the array.
  */
