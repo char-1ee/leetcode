@@ -1,4 +1,4 @@
-import { ListNode } from '../utils/ListNode';
+import { ListNode } from '../utils/utility';
 
 /**
  * Write a function to delete a node in a singly-linked list.
