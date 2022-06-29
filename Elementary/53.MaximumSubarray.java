@@ -1,3 +1,5 @@
+package elementary;
+
 class Solution {
     /** Kadane's algorithm */
     public int maxSubArray(int[] nums) {

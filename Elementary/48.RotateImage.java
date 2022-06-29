@@ -1,3 +1,5 @@
+package elementary;
+
 class Solution {
 
     /** Rotate Groups of Four Cells */

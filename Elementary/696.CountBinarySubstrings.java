@@ -1,3 +1,5 @@
+package elementary;
+
 class Solution {
     /** Group by character */
     public int countBinarySubstrings(String s) {

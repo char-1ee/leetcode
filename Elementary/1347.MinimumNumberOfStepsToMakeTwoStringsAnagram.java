@@ -1,3 +1,5 @@
+package elementary;
+
 class Solution {
     /** Reflection to array */
     public int minSteps(String s, String t) {

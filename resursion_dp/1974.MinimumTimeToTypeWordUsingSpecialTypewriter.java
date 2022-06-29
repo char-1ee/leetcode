@@ -1,3 +1,5 @@
+package resursion_dp;
+
 class Solution {
     public int minTimeToType(String word) {
         int len = word.length();

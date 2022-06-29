@@ -1,3 +1,4 @@
+package hash_table;
 import java.util.HashMap;
 
 class Solution {

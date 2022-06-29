@@ -1,3 +1,4 @@
+package elementary;
 /*
  * @lc app=leetcode id=59 lang=java
  *

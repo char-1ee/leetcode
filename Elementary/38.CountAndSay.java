@@ -1,3 +1,5 @@
+package elementary;
+
 class Solution {  
     /** Iterative 1 */
     public String countAndSay1(int n) {

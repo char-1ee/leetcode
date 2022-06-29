@@ -1,3 +1,8 @@
+package hash_table;
+
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
     public String reformatDate(String date) {
         StringBuilder sb = new StringBuilder();

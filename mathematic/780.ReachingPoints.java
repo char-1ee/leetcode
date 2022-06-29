@@ -1,3 +1,5 @@
+package mathematic;
+
 class Solution {
     /** Backwards (TLE)  */
     public boolean reachingPoints(int sx, int sy, int tx, int ty) {

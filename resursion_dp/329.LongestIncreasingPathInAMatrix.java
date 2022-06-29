@@ -1,3 +1,5 @@
+package resursion_dp;
+
 class Solution {
 
     private int[][] dirs = new int[][] { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
