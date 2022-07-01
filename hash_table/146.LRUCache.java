@@ -1,8 +1,10 @@
-package stack_queue.data_structures;
+package hash_table;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-class LRUCache {
+class LRUCache1 {
 
     class LinkedNode {
         int key;
@@ -45,7 +47,7 @@ class LRUCache {
     private LinkedNode head, tail;
     private HashMap<Integer, LinkedNode> cache;
     
-    public LRUCache(int capacity) {
+    public LRUCache1(int capacity) {
         this.size = 0;
         this.capacity = capacity;
         this.cache = new HashMap<>();
@@ -90,3 +92,25 @@ class LRUCache {
  * int param_1 = obj.get(key);
  * obj.put(key,value);
  */
+
+class LRUCache2 extends LinkedHashMap<Integer, Integer> {
+    private int capacity;
+
+    public LRUCache2(int capacity) {
+        super(capacity, 0.75F, true);
+        this.capacity = capacity;
+    }
+
+    public int get(int key) {
+        return super.getOrDefault(key, -1);
+    }
+
+    public void put(int key, int value) {
+        super.put(key, value);
+    }
+
+    @Override
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+        return this.size() > capacity;
+    }
+}

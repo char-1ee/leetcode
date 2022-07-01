@@ -1,4 +1,4 @@
-package bitwise;
+package bit_manipulation;
 
 import java.math.BigInteger;
 
