@@ -1,10 +1,12 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
 class Solution {
 public:
-
     // naive methods
-    string multiply(string num1, string num2) { 
-        if (num1 == "0" || num2 == "0")
-            return "0";
+    string multiply(string num1, string num2) {
+        if (num1 == "0" || num2 == "0") return "0";
         int n = num1.size(), m = num2.size(); // n >=m
         if (n < m) return multiply(num2, num1);
         string res = "";
@@ -15,7 +17,7 @@ public:
         }
         return res;
     }
-    
+
     string multiply_single(string a, int x) {
         string res = "";
         int carry = 0;
@@ -28,7 +30,7 @@ public:
         if (carry > 0) res = to_string(carry) + res;
         return res;
     }
-    
+
     string add_string(string a, string b) {
         int n = a.length(), m = b.length();
         string res = "";
@@ -41,16 +43,14 @@ public:
             carry = sum / 10;
             res = to_string(digit) + res;
         }
-        if (carry > 0)
-            res = to_string(carry) + res;
+        if (carry > 0) res = to_string(carry) + res;
         return res;
     }
 
     // great simplify
-    string multiply(string num1, string num2) {
-        if (num1 == "0" || num2 == "0")
-            return "0";
-        
+    string multiply2(string num1, string num2) {
+        if (num1 == "0" || num2 == "0") return "0";
+
         string res = "";
         int n = num1.length(), m = num2.length();
 
@@ -63,7 +63,7 @@ public:
 
                 // nums[i]*num2[j] 's result is added to index (i+j) and (i+j+1)
                 int p1 = i + j, p2 = i + j + 1;
-                
+
                 int sum = product + vals[p2];
                 vals[p1] += sum / 10;
                 vals[p2] = sum % 10;
@@ -71,8 +71,7 @@ public:
         }
         for (int val : vals) {
             // edge case: leading zeros are ignored but in-line zeros cannot be ignored
-            if (!res.empty() || val != 0)
-                res.push_back(val + '0');
+            if (!res.empty() || val != 0) res.push_back(val + '0');
         }
         return res;
     }
