@@ -44,3 +44,31 @@ public:
         return nums[0];
     }
 };
+
+// Binary search. time O(nlogn) space O(1)
+class Solution3 {
+public:
+    int findDuplicate(vector<int>& nums) {
+        // lambda to count elements in vector less or equal than mid
+        auto count = [&](int mid) {
+            int count = 0;
+            for (int& num : nums) {
+                if (num <= mid) count++;
+            }
+            return count;
+        };
+
+        int dup = -1;
+        int lo = 1, hi = nums.size() - 1;
+        while (lo <= hi) { // O(logn)
+            int mid = lo + (hi - lo) / 2;
+            if (count(mid) > mid) { // O(n)
+                dup = mid;
+                hi = mid - 1;
+            } else {
+                lo = mid + 1;
+            }
+        }
+        return dup;
+    }
+};
