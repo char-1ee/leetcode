@@ -72,3 +72,25 @@ public:
         return dup;
     }
 };
+
+// Floyd's Tortoise and Hare (Cycle Detection). time O(n) space O(1)
+class Solution4 {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow = nums[0];
+        int fast = nums[0];
+        
+        do  {
+            fast = nums[nums[fast]];
+            slow = nums[slow];
+        } while (fast != slow);
+        
+        slow = nums[0];
+        while (fast != slow) {
+            fast = nums[fast];
+            slow = nums[slow];
+        }
+        
+        return slow;
+    }
+};

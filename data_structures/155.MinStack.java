@@ -1,4 +1,4 @@
-package stack_queue.data_structures;
+package data_structures;
 
 import java.util.Stack;
 
