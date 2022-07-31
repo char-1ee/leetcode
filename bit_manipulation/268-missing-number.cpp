@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
@@ -14,7 +15,7 @@ public:
     // ===== method 2: time O(n), space O(n) =====
     int missingNumber_2(vector<int>& nums) {
         int n = nums.size();
-        std::unordered_set<int> set;
+        unordered_set<int> set;
         for (int num : nums) {
             set.insert(num);
         }

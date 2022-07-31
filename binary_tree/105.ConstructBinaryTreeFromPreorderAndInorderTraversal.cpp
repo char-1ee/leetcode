@@ -1,14 +1,7 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+#include <bits/stdc++.h>
+#include "../utils/utility.h"
+using namespace std;
+
 class Solution {
 public:  
     TreeNode* buildTree(vector<int>& pre, int pre_left, int pre_right, vector<int>& in, int in_left, int in_right) {
