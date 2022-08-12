@@ -22,7 +22,7 @@ class Solution {
         return res;
     }
 
-    /** One set */
+    /** Two set */
     public int[] intersection1(int[] nums1, int[] nums2) {
         HashSet<Integer> set = new HashSet<>();
         HashSet<Integer> s = new HashSet<>();
