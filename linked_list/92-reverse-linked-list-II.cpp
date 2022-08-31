@@ -1,13 +1,7 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
+#include <bits/stdc++.h>
+#include "../utils/utility.h"
+using namespace std;
+
 class Solution {
 public:
     // method 1
@@ -55,10 +49,11 @@ public:
             curr = tmp;
             n--;
         }
-        if (con) 
+        if (con) {
             con->next = prev;
-        else 
+        } else {
             head = prev;
+        }
         tail->next = curr;
         return head;
     }
