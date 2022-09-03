@@ -3,7 +3,7 @@ package elementary;
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+class Solution1 {
     public List<Integer> spiralOrder(int[][] matrix) {
         int m = matrix.length; // rows
         int n = matrix[0].length; // cols
@@ -52,7 +52,6 @@ class Solution {
             }
             cnt++;
         }
-
         return res;
     }
 }
