@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+using namespace std;
 
 /** Two queues: push O(1), pop O(n) */
 class MyStack {
@@ -6,9 +8,8 @@ private:
     queue<int> q2; // simulate the rest of stack
 
 public:
-        
     MyStack() {}
-    
+
     void push(int x) {
         if (!q1.empty()) {
             q2.push(q1.front());
@@ -16,54 +17,51 @@ public:
         }
         q1.push(x);
     }
-    
+
     int pop() {
         int i = top();
         q1.pop();
         return i;
     }
-    
+
     int top() {
         if (q1.empty()) {
             for (int i = 0; i < q2.size() - 1; ++i) {
-                q2.push(q2.front()); 
+                q2.push(q2.front());
                 q2.pop();
             }
-            q1.push(q2.front()); q2.pop();
+            q1.push(q2.front());
+            q2.pop();
         }
         return q1.front();
     }
-    
-    bool empty() {
-        return q1.empty() && q2.empty();
-    }
+
+    bool empty() { return q1.empty() && q2.empty(); }
 };
 
 /** One queue: push O(n), pop O(1) */
-class MyStack {
+class MyStack2 {
 public:
-    MyStack() {}
-    
+    MyStack2() {}
+
     void push(int x) {
         q.push(x);
-        for (int i = 0 ; i < q.size() - 1; ++i) {
-            q.push(q.front()); q.pop();
+        for (int i = 0; i < q.size() - 1; ++i) {
+            q.push(q.front());
+            q.pop();
         }
     }
-    
+
     int pop() {
-        int x = q.front(); q.pop();
+        int x = q.front();
+        q.pop();
         return x;
     }
-    
-    int top() {
-        return q.front();
-    }
-    
-    bool empty() {
-        return q.empty();
-    }
-    
+
+    int top() { return q.front(); }
+
+    bool empty() { return q.empty(); }
+
 private:
     queue<int> q;
 };
