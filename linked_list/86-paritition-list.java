@@ -1,3 +1,7 @@
+package linked_list;
+
+import utils.ListNode;
+
 class Solution {
     public ListNode partition(ListNode head, int x) {
         ListNode beforeList = new ListNode();
