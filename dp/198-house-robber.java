@@ -1,4 +1,4 @@
-package DPAndRecursion;
+package dp;
 
 import java.util.HashMap;
 

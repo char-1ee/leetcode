@@ -1,4 +1,4 @@
-package resursion_dp;
+package dp;
 
 class Solution {
     public int coinChange(int[] coins, int amount) {

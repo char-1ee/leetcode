@@ -44,7 +44,8 @@ public:
     }
 };
 
-// Binary search
+// Patience sorting:
+// Greedy approach + Binary search
 // time O(nlogn) space O(n)
 class Solution3 {
 public:

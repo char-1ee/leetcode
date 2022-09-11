@@ -1,4 +1,4 @@
-package elementary;
+package dp;
 
 class Solution {
     /** Kadane's algorithm */
@@ -26,5 +26,20 @@ class Solution {
             maxSubarray = Math.max(currSubarray, maxSubarray);
         }
         return maxSubarray;
+    }
+
+    /** Prefix sum */
+    public int maxSubArray3(int[] nums) {
+        int minSum = 0;        
+        int maxSum = nums[0];
+        
+        int runningSum = 0;
+
+        for (int num: nums) {
+            runningSum += num;
+            maxSum = Math.max(maxSum, runningSum - minSum);
+            minSum = Math.min(runningSum, minSum);
+        }
+        return maxSum;
     }
 }

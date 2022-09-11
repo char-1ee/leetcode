@@ -1,4 +1,4 @@
-package resursion_dp;
+package resursion;
 
 class Solution {
     /** Top-down */

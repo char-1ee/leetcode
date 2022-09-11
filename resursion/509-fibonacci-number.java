@@ -1,3 +1,5 @@
+package resursion;
+
 import java.util.HashMap;
 
 class FibonacciNumber {
