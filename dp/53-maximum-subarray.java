@@ -6,8 +6,7 @@ class Solution {
         int n = nums.length;
         int currSubarray = nums[0], maxSubarray = nums[0];
         for (int i = 1; i < n; i++) {
-            int num = nums[i];
-            currSubarray = Math.max(num, num + currSubarray);
+            currSubarray = Math.max(nums[i], nums[i] + currSubarray);
             maxSubarray = Math.max(currSubarray, maxSubarray);
         }
         return maxSubarray;
