@@ -1,4 +1,4 @@
-package dp;
+package dp.kadane;
 
 class Solution {
     /** Kadane's algorithm */
