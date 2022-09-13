@@ -1,4 +1,4 @@
-package resursion_dp;
+package dp;
  
 class UniquePaths {
     public int uniquePaths(int m, int n) {
