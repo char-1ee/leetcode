@@ -6,8 +6,8 @@ public:
     int numDecodings(string s) {
         int n = s.length();
         vector<int> dp(n + 1);
-        dp[n] = 1;        
-        
+        dp[n] = 1;
+
         for (int i = n - 1; i >= 0; i--) {
             if (s[i] == '0') {
                 dp[i] = 0;
@@ -20,7 +20,7 @@ public:
         }
         return dp[0];
     }
-    
+
     bool isValid(string s, int i) {
         int d1 = s[i] - '0';
         int d2 = s[i + 1] - '0';
