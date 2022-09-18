@@ -36,8 +36,9 @@ class Solution {
             sums[k] = sums[k - 1] + nums[k];
         }
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if ((sums[j] - sums[i] + nums[i]) >= target) {
+            for (int j = i; j < n; j++) {
+                int sum = sums[j] - sums[i] + nums[i];
+                if (sum >= target) {
                     res = Math.min(res, j - i + 1);
                     break;
                 }
@@ -89,7 +90,6 @@ class Solution {
                 return foundWindowSize;
             }
         }
-
         return -1;
     }
 
