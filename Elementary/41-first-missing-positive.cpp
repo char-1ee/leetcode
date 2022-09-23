@@ -31,7 +31,7 @@ public:
         }
         if (!is_1_present) return 1;
 
-        // replace non-positives and numbers larger nums.len than  by 1s
+        // replace non-positives and numbers larger nums.len than by 1s
         for (int& num : nums) {
             if (num <= 0 || num > n) num = 1;
         }
@@ -57,7 +57,7 @@ public:
         return n + 1;
     }
 
-    // Index as hash key. But in-place opreations.
+    // Index as hash key. But in-place operations.
     // 1 -> nums[0]
     // 2 -> nums[1]
     // i -> nums[i - 1]
