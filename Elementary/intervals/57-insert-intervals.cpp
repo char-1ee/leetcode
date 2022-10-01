@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// insert -> sort -> merge
 // time O(nlogn), space O(n)
 class Solution1 {
 public:
@@ -32,7 +33,8 @@ public:
     }
 };
 
-// Greedy. time O(n)
+// Greedy. iteration with merges
+// time O(n), space O(n)
 class Solution2 {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
