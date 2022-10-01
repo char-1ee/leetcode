@@ -11,7 +11,7 @@ public:
 
     int bitwiseComplement2(int n) {
         int m = 1;
-        while (m < n) m = 2* m + 1;
-        return m ^ n;   // m - n
+        while (m < n) m = 2 * m + 1;
+        return m ^ n; // m - n
     }
-}
+};

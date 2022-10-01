@@ -1,22 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// sort start points and end points seperately
 class MergeIntervals {
-public: 
-    
-    // sort start points and end points seperately
-    vector<vector<int>> merge(vector<vector<int>> &intervals) {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
         int n = intervals.size();
         vector<vector<int>> res;
         vector<int> starts, ends;
 
-        for (int i = 0; i < n; i++) {
-            starts.push_back(intervals[i][0]);
-            ends.push_back(intervals[i][1]);
+        for (auto interval : intervals) {
+            starts.push_back(interval[0]);
+            ends.push_back(interval[1]);
         }
 
-        sort(starts.begin(), ends.end());
-        sort(starts.begin(), ends.end());
+        sort(starts.begin(),starts.end());
+        sort(ends.begin(), ends.end());
 
+        // j: points to start of a new interval
+        // i: points to end of a new interval
         for (int i = 0, j = 0; i < n; ++i) {
-
+            
             // notation: || has its logical precedure
             if (i == n - 1 || starts[i + 1] > ends[i]) {
                 res.push_back({starts[j], ends[i]});
@@ -25,23 +29,29 @@ public:
         }
         return res;
     }
+};
 
+// iteration
+class Solution2 {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        int n = intervals.size();
+        if (n < 2) return intervals;
 
-    // normal iterations
-    vector<vector<int>> merge2(vector<vector<int>> &intervals) {
-        if (intervals.size() < 2) return intervals;
+        sort(intervals.begin(), intervals.end());
+        vector<vector<int>> stack{intervals[0]};
 
-        sort(intervals.begin(), intervals.end(), [](vector<int> a, vector<int> b) { return a[0] < b[0]; });
+        for (int i = 1; i < n; i++) {
+            auto prev = stack.back();
+            auto curr = intervals[i];
 
-        vector<vector<int>> res{intervals[0]};
-
-        for (int i = 0; i < n; i++) {
-            if (intervals[i][0] < res.back()[1]) {
-                res.back()[1] = max(intervals[i][1], res.back()[1]);
-            } else {
-                res.push_back({intervals[i][0], res.back()[1]});
+            if (curr[0] > prev[1]) { // non-overlap
+                stack.push_back(curr);
+            } else { // overlap: curr[0] < prev[1]
+                stack.back()[1] = max(prev[1], curr[1]);
             }
         }
-        return res;
+
+        return stack;
     }
-}
+};

@@ -1,8 +1,7 @@
 class Solution {
 public:
     int numComplement(int num) {
-
-        // avoid stack overflow by unsigned int 
+        // avoid stack overflow by unsigned int
         unsigned mask = ~0;
 
         // find the highest 1 in num

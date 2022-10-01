@@ -20,7 +20,7 @@ public:
             set.insert(num);
         }
         for (int i = 0; i <= n; ++i) {
-            if (!set.count(i))  return i;
+            if (!set.count(i)) return i;
         }
         return -1;
     }
