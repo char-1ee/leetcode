@@ -1,3 +1,4 @@
+#include <math.h>
 class Solution {
 public:
     // Method 1: iteration
