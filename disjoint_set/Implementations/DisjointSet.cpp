@@ -47,4 +47,4 @@ public:
 private:
     vector<int> roots;
     vector<int> ranks;
-}
+};

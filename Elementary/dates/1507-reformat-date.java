@@ -1,4 +1,4 @@
-package hash_table;
+package elementary.dates;
 
 import java.util.HashMap;
 import java.util.Map;
