@@ -26,8 +26,8 @@ class Solution {
 
     // since we cannot track a head of sublist but the previous node of sublist head
     private ListNode reverse(ListNode prev, ListNode tail) {
-        ListNode last = prev.next;
-        ListNode curr = last.next;
+        ListNode last = prev.next; // last node in sublist after reverse
+        ListNode curr = last.next; 
         while (curr != tail) {
             last.next = curr.next;
             curr.next = prev.next;
@@ -37,6 +37,14 @@ class Solution {
         return last; // new head
     }
 }
+// -1->1->2->3->4->5
+//  |        |  |
+// pre      cur next
+
+// -1->3->2->1->4->5
+//     |     |  |
+//    cur   pre next
+
 
 /**
  * Recursive:
@@ -60,7 +68,7 @@ class Solution2 {
 
     /**
      * @param head the start node of a k-group
-     * @param tail the next node of end of a k-group
+     * @param tail the next node of end node of a k-group
      * @return reversed list which head is now the end
      */
     private ListNode reverse(ListNode head, ListNode tail) {
