@@ -11,8 +11,8 @@ public:
             int curr_gcd = 0; // gcd(0, n) = n
             for (int j = i; j < nums.size(); j++) {
                 curr_gcd = __gcd(nums[j], curr_gcd);
-                if (curr_gcd == k) cnt++;
                 if (curr_gcd < k || curr_gcd % k != 0) break;
+                if (curr_gcd == k) cnt++;
             }
         }
         return cnt;
