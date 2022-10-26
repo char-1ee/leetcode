@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// increment n-1 element by 1 == decrement 1 element by 1
 class Solution {
 public:
     int minMoves(vector<int>& nums) {
