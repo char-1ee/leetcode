@@ -1,7 +1,10 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
-public:
+   public:
     // greedy: backward
-    bool canJumpGreedy1(vector<int>& nums) {
+    bool canJumpGreedy1(vector<int> &nums) {
         int n = nums.size();
         if (n == 1) return true;
         int pos = n - 1;
@@ -15,7 +18,7 @@ public:
     }
 
     // greedy: forward
-    bool canJumpGreedy2(vector<int>& nums) {
+    bool canJumpGreedy2(vector<int> &nums) {
         int n = nums.size();
         int pos = 0;
         for (int i = 0; i < n; i++) {

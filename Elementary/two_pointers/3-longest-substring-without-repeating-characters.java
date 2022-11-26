@@ -1,4 +1,4 @@
-package hash_table;
+package elementary.two_pointers;
 import java.util.HashSet;
 import java.util.Set;
 
