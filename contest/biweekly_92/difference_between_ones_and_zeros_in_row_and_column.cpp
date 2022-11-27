@@ -10,19 +10,13 @@ class Solution {
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (grid[i][j] == 0)
-                    zeroRows[i]++;
-                else
+                if (grid[i][j]) {
                     oneRows[i]++;
-            }
-        }
-
-        for (int j = 0; j < n; j++) {
-            for (int i = 0; i < m; i++) {
-                if (grid[i][j] == 0)
-                    zeroCols[j]++;
-                else
                     oneCols[j]++;
+                } else {
+                    zeroRows[i]++;
+                    zeroCols[j]++;
+                }
             }
         }
 

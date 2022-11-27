@@ -4,14 +4,10 @@ using namespace std;
 class Solution {
    public:
     int bestClosingTime(string s) {
-        int n = s.length();
-        int Y = 0, N = 0;
-
+        int n = s.length(), Y = 0, N = 0;  // total cnt of Y and N
+        
         for (int i = 0; i < n; i++) {
-            if (s[i] == 'Y')
-                Y++;
-            else
-                N++;
+            (s[i] == 'Y') ? Y++ : N++;
         }
         if (Y == 0)
             return 0;
