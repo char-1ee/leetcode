@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     // sqrt(x) = pow(e, 0.5 * ln(x))
@@ -9,8 +12,8 @@ public:
     }
 
     // binary search
-    int sqrt(int x) {
-        if (x < 2) int return x;
+    int sqrt2(int x) {
+        if (x < 2) return x;
         int left = 0, right = x / 2;
         while (left <= right) {
             int mid = left + (right - left) / 2;
@@ -21,4 +24,4 @@ public:
         }
         return right;
     }
-}
+};
