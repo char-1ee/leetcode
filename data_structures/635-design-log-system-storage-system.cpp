@@ -2,14 +2,11 @@
 using namespace std;
 
 class LogSystem {
-public:
-    LogSystem() {
-    }
-    
-    void put(int id, string timestamp) {
-        m.insert({timestamp, id});
-    }
-    
+   public:
+    LogSystem() {}
+
+    void put(int id, string timestamp) { m.insert({timestamp, id}); }
+
     vector<int> retrieve(string start, string end, string granularity) {
         vector<int> res;
         convert(start, end, granularity);
@@ -21,28 +18,24 @@ public:
         return res;
     }
 
-private:
+   private:
     // multimap<string, int> m;
     map<string, int> m;
 
-    void convert(string& s, string& e, string& g) {
+    void convert(string &s, string &e, string &g) {
         if (g == "Year") {
             s = s.substr(0, 4) + ":01:01:00:00:00";
             e = e.substr(0, 4) + ":12:31:23:59:59";
-        }
-        else if (g == "Month") {
+        } else if (g == "Month") {
             s = s.substr(0, 7) + ":01:00:00:00";
             e = e.substr(0, 7) + ":31:23:59:59";
-        }
-        else if (g == "Day") {
+        } else if (g == "Day") {
             s = s.substr(0, 10) + ":00:00:00";
             e = e.substr(0, 10) + ":23:59:59";
-        }
-        else if (g == "Hour") {
+        } else if (g == "Hour") {
             s = s.substr(0, 13) + ":00:00";
             e = e.substr(0, 13) + ":59:59";
-        }
-        else if (g == "Minute") {
+        } else if (g == "Minute") {
             s = s.substr(0, 16) + ":00";
             e = e.substr(0, 16) + ":59";
         }
