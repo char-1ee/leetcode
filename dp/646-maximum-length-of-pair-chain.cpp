@@ -12,8 +12,8 @@ class Solution {
         sort(pairs.begin(), pairs.end(), comp);
 
         vector<int> dp(n, 1);
-        for (int i = n - 2; i >= 0; i--) {
-            for (int j = i + 1; j < n; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < i; j++) {
                 if (pairs[i][1] < pairs[j][0]) {
                     dp[i] = max(dp[j] + 1, dp[i]);
                 }
@@ -31,6 +31,7 @@ class Solution2 {
         auto comp = [](const vector<int> &a, const vector<int> &b) {
             return a[1] < b[1];
         };
+        // sort by tail
         sort(pairs.begin(), pairs.end(), comp);
 
         int res = 0, curr = INT_MIN;  // curr: current tail of chain,
